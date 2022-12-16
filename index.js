@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require("./config");
 const articleRouters = require("./routers/articles");
 const Blog = require("./model/blogSchema");
+const static=require("./views/articles/index");
 const mo = require("method-override");
 app.use((req, res, next) => {
   dotenv;
@@ -34,7 +35,7 @@ app.use(mo("_method"));
 app.use("/articles", articleRouters);
 app.get("/", async (req, res) => {
   const articles = await Blog.find().sort({ createdOn: "desc" });
-  res.render("/views/articles/index.ejs", { articles: articles });
+  res.render(static, { articles: articles });
 });
 app.listen(PORT, () => {
   console.log(
