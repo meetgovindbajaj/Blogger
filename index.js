@@ -35,7 +35,7 @@ app.use(mo("_method"));
 app.use("/articles", articleRouters);
 app.get("/", async (req, res) => {
   const articles = await Blog.find().sort({ createdOn: "desc" });
-  res.render(static, { articles: articles });
+  return res.render("articles/index", { articles: articles });
 });
 app.listen(PORT, () => {
   console.log(
