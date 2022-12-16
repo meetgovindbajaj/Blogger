@@ -3,7 +3,6 @@ const app = express();
 const dotenv = require("./config");
 const articleRouters = require("./routers/articles");
 const Blog = require("./model/blogSchema");
-const static=require("./views/articles/index");
 const mo = require("method-override");
 app.use((req, res, next) => {
   dotenv;
